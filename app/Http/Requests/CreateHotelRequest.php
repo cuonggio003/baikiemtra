@@ -28,9 +28,8 @@ class CreateHotelRequest extends FormRequest
             'group' => 'required',
             'name' => 'required',
             'birthday' => 'required',
-            
-            'phone' => 'required',
-            'people_id' => 'required',
+            'phone' => 'required|min:10',
+            'people_id' => 'required|min:10',
             'email'=> 'required',
             'address' => 'required',
         ];

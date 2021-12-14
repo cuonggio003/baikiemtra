@@ -26,7 +26,6 @@ class HotelController extends Controller
     {   
     
         $hotel = new Hotel();
-       
         $hotel->group = $request->group;
         $hotel->name = $request->name;
         $hotel->birthday = $request->birthday;

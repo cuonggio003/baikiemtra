@@ -1,18 +1,16 @@
 @extends('home')
 @section('content')
     <div class="main-container">
-        <form>
+        <form method="post" action="{{ route('edit.hotel', $hotel->id) }}" enctype="multipart/form-data">
             @csrf
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputEmail4" class="text-warning">Mã nhân viên</label>
-                    <input type="number" value="{{ $hotel->id }}" class="form-control">
-
+                    <input type="number" value="{{ $hotel->id }}" name="id" class="form-control">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputPassword4" class="text-warning">Số điện thoại</label>
-                    <textarea type="number" value="{{ $hotel->phone }}"
-                        class="form-control @error('phone') is-invalid  @enderror" id="phone" name="phone"></textarea>
+                    <input type="number" value="{{ $hotel->phone }}" class="form-control" name="phone">
                     @error('phone')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
@@ -32,8 +30,7 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputPassword4" class="text-warning">Số CMND</label>
-                    <textarea type="text" value="{{ $hotel->pepple_id }}" class="form-control"
-                        name="people_id"></textarea>
+                    <input type="number" value="{{ $hotel->people_id }}" class="form-control" name="people_id">
                     @error('people_id')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
@@ -42,16 +39,14 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputEmail4" class="text-warning">Họ tên</label>
-                    <textarea type="text" value="{{ $hotel->name}}" class="form-control"
-                        name="name"></textarea>
+                    <input type="text" value="{{ $hotel->name }}" class="form-control" name="name">
                     @error('name')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputEmail4" class="text-warning">Email</label>
-                    <textarea type="text" value="{{ $hotel->email }}" class="form-control"
-                        name="email"></textarea>
+                    <input type="email" value="{{ $hotel->email }}" class="form-control" name="email">
                     @error('email')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
@@ -67,20 +62,19 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputPassword4" class="text-warning"> Địa chỉ</label>
-                    <textarea type="text" value="{{ $hotel->address }}" class="form-control"
-                        name="address"></textarea>
+                    <input type="text" value="{{ $hotel->address }}" class="form-control" name="address">
                     @error('address')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="sex" id="inlineRadio1" value="{{ $hotel->sex }}" >
+                    <input class="form-check-input" type="radio" name="sex" id="inlineRadio1" value="{{ $hotel->sex }}">
                     <label class="form-check-label" for="inlineRadio1">Nam</label>
-                  </div>
-                  <div class="form-check form-check-inline">
+                </div>
+                <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="sex" id="inlineRadio2" value="{{ $hotel->sex }}">
                     <label class="form-check-label" for="inlineRadio2">Nữ</label>
-                  </div>
+                </div>
             </div>
             <button type="submit" class="btn btn-primary">Lưu</button>
             <button class="btn btn-danger" onclick="window.history.go(-1); return false;">Hủy</button>
